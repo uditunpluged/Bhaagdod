@@ -1,0 +1,30 @@
+// Place all the styles related to the teams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.mydiv{
+  position: relative;
+  min-height:80px;
+
+}
+
+.mydiv ul li{
+  position: absolute;
+}
+.mydiv ul li:nth-child(1){
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
+
+
+$elements: 4;
+@for $i from 0 to $elements {
+  .mydiv ul li:nth-child(#{$i}){
+    z-index: #{$i};
+    top: calc(#{$i} * 15px) ;
+    left: calc(#{$i} * 15px) ;
+  }
+}

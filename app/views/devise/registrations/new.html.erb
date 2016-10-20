@@ -1,0 +1,36 @@
+<div class="col-sm-6 col-md-offset-3 ">
+
+  <div class="panel">
+    <div class="panel-heading">
+      <h2 class="panel-title">Register</h2>
+    </div>
+
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <div class="panel-body">
+            <form class="form-horizontal">
+              <div class="panel-body">
+                <%= f.input :email, required: true, autofocus: true, class: 'form-group' %>
+                <%= f.input :password, required: true, class: 'form-group', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true, class: 'form-group' %>
+              </div>
+            </form>
+          </div>
+          <div class="panel-footer">
+
+
+            <div class="text-right col4">
+              <%= f.button :submit, "Register", class: "btn btn-mint" %>
+            </div>
+
+          </div>
+        </div>
+
+    <% end %>
+
+
+  </div>
+</div>
