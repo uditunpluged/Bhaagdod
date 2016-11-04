@@ -10,10 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require nifty.min.js
+//= require nifty.min
 //= require bootstrap-sprockets
+//= require viewportSize.min
 //= require pace/pace
+//= require turbolinks
 //= require_tree .
+$(document).ready(function () {
+    $(".mainnav-toggle").click(function () {
+        if ($("#container").hasClass("mainnav-lg")) {
+            $("#container").addClass("mainnav-sm").removeClass("mainnav-lg");
 
+        } else if ($("#container").hasClass("mainnav-sm")) {
+            $("#container").addClass("mainnav-lg").removeClass("mainnav-sm");
+        }
+
+    });
+
+});

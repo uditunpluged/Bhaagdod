@@ -8,7 +8,7 @@
 </head>
 
 <body class="nifty-ready pace-done">
-<div id="container" class="effect mainnav-lg navbar-fixed ">
+<div id="container" class="effect mainnav-out navbar-fixed ">
 
   <!--NAVBAR-->
   <!--===================================================-->
@@ -21,7 +21,7 @@
           <div class="navbar-header">
             <div class="navbar-brand">
               <%= link_to root_path do %>
-                  <span class="brand-text brand-title" style="color:#ffffff;">Bhaag Dod</span>
+                  <span class="brand-text brand-title">Bhaag Dod</span>
               <% end %>
 
             </div>
@@ -36,7 +36,7 @@
           <div class="navbar-content clearfix">
             <ul class="nav navbar-top-links pull-left">
               <li class="tgl-menu-btn">
-                <a class="mainnav-toggle" href="#">
+                <a class="mainnav-toggle" href="">
                   <i class="fa fa-navicon fa-lg"></i>
                 </a>
 
@@ -59,7 +59,7 @@
               <li id="dropdown-user" class="dropdown">
                 <a href="" data-toggle="dropdown" class="dropdown-toggle text-right" aria-expanded="false">
 								<span class="pull-right">
-									<img class="img-circle img-user media-object" src="assets/login.jpg" alt="Profile Picture">
+									<img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
 								</span>
 
                   <div class="username hidden-xs">John Doe</div>
@@ -147,7 +147,7 @@
       <!--END NAVBAR-->
 
       <div class="boxed">
-        <div id="content-container">
+        <div id="">
 
 
           <%= yield %>
@@ -165,68 +165,28 @@
             <% end %>
           </div>
         </div>
-        <!--Main Nav side navigattion start-->
-        <nav id="mainnav-container">
-          <div id="mainnav">
-            <div id="mainnav-menu-wrap">
-              <div class="nano">
-                <div class="nano-content">
-                  <ul id="mainnav-menu" class="list-group">
 
-                    <li><a href=""><i class="fa fa-gear"></i><span class="menu-title">WorkFlow</span></a></li>
-                    <li id="test"><a href="<%= teams_path %>"><i class="fa fa-users"></i><span class="menu-title">Teams</span></a>
-                    </li>
-                    <li>
-                      <a href="<%= runners_path %>"><i class="fa fa-user"></i><span class="menu-title">Runners</span></a>
-                    </li>
-                    <li>
-                      <a href="<%= coordinators_path %>"><i class="fa fa-user"></i><span class="menu-title">Coordinators</span></a>
-                    </li>
-                    <li>
-                      <a href="<%= customers_path %>"><i class="fa fa-users"></i><span class="menu-title">Customers</span></a>
-                    </li>
-                    <li><a href=""><i class="fa fa-btc"></i><span class="menu-title">Billing</span></a></li>
-                    <li><a href=""><i class="fa fa-key"></i><span class="menu-title">Api Key</span></a></li>
-                  </ul>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </nav>
-        <!--Main Nav side navigattion end-->
       </div>
 
 
+      <!-- FOOTER -->
+      <!--===================================================-->
+      <footer id="footer">
 
 
-      <!-- Else part below-- the login page -->
-  <% else %>
-      <div id="bg-overlay" class="bg-img" style="background-image:url(<%= asset_path 'login.jpg' %>);"></div>
-
-      <div class="cls-container">
-        <div class="cls-header cls-header-lg">
-          <div class="cls-brand">
-            <a class="box-inline" href="index.html">
-              <span class="brand-title">Bhaag <span class="text-thin">Daud</span></span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="cls-content">
-        <div>
+        <!-- Visible when footer positions are static -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="hide-fixed pull-right pad-rgt">Currently v2.2</div>
 
 
-          <% flash.each do |name, msg| %>
-              <%= content_tag :div, msg, class: "alert alert-info" %>
-          <% end %>
-          <%= yield %>
+        <p class="pad-lft">&#0169; 2015 Phantasmist ©</p>
 
 
-        </div>
-      </div>
+      </footer>
+      <!--===================================================-->
+      <!-- END FOOTER -->
+
+
   <% end %>
 
 

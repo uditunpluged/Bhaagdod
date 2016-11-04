@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :users
   root to: "home#index"
 
@@ -14,6 +15,9 @@ Rails.application.routes.draw do
 
   end
   resources :runners do
+
+  end
+  resources :tracker do
 
   end
 

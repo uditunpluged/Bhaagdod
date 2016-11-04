@@ -1447,6 +1447,166 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   }
 }
 
+
+// tracker container
+
+@media (min-width: 768px) {
+  #aside {
+    max-height: none;
+    padding-top: 50px;
+    visibility: visible;
+    background-color: #3c4d5e;
+    height: 100%
+  }
+  #aside.aside-xs-in {
+    max-height: none
+  }
+  #tracker-container #aside-tracker-container {
+    padding: 0;
+    background-color: #fff;
+    position: fixed;
+    width: 220px;
+    height: auto;
+    left: auto;
+    right: -220px;
+    top: 0;
+    bottom: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    visibility: hidden;
+    z-index: 3
+  }
+  #tracker-container #aside-tracker-container .nano-content {
+    position: absolute
+  }
+  #tracker-container #content-tracker-container, #tracker-container #footer {
+    padding-right: 0
+  }
+  #tracker-container.aside-in #content-tracker-container, #tracker-container.aside-in #footer {
+    padding-right: 220px
+  }
+  #tracker-container.aside-in.aside-left #content-tracker-container, #tracker-container.aside-in.aside-left #footer {
+    padding-left: 220px;
+    padding-right: 0
+  }
+  #tracker-container.aside-in.aside-left.mainnav-lg #content-tracker-container, #tracker-container.aside-in.aside-left.mainnav-lg #footer {
+    padding-left: 440px;
+    padding-right: 0
+  }
+  #tracker-container.aside-in.aside-left.mainnav-lg #aside-tracker-container {
+    left: 220px;
+    right: auto
+  }
+  #tracker-container.aside-in.aside-left.mainnav-sm #content-tracker-container, #tracker-container.aside-in.aside-left.mainnav-sm #footer {
+    padding-left: 270px;
+    padding-right: 0
+  }
+  #tracker-container.aside-in.aside-left.mainnav-sm #aside-tracker-container {
+    left: 50px;
+    right: auto
+  }
+  #tracker-container.aside-in.aside-left.mainnav-in #aside-tracker-container {
+    left: 220px;
+    right: auto
+  }
+  #tracker-container.mainnav-in:not(.slide) #footer, #tracker-container.mainnav-in #content-tracker-container {
+    padding-right: 0
+  }
+  #tracker-container.aside-in #aside-tracker-container {
+    left: auto;
+    right: 0
+  }
+  #tracker-container.aside-in.aside-left.mainnav-in #aside-tracker-container {
+    left: 220px;
+    right: auto
+  }
+  #tracker-container.aside-left #aside-tracker-container, #tracker-container.aside-in.aside-left #aside-tracker-container {
+    right: auto
+  }
+  #tracker-container.aside-left.mainnav-sm #aside-tracker-container {
+    left: -170px
+  }
+  #tracker-container.aside-left.mainnav-sm #content-tracker-container, #tracker-container.aside-left.mainnav-sm #footer {
+    padding-left: 50px
+  }
+  #tracker-container.aside-left.mainnav-out:not(.aside-in) #aside-tracker-container {
+    left: -220px
+  }
+  #tracker-container.aside-fixed #aside-tracker-container {
+    position: fixed
+  }
+  #tracker-container.aside-fixed #aside {
+    height: 100%
+  }
+  #tracker-container.aside-fixed #aside .nano-content {
+    position: absolute
+  }
+  #tracker-container.aside-fixed:not(.navbar-fixed) #aside-tracker-container.affix {
+    top: -50px;
+    position: fixed
+  }
+  #tracker-container.aside-fixed:not(.navbar-fixed) #aside-tracker-container.affix-top {
+    top: 0;
+    position: absolute
+  }
+  #tracker-container.aside-in #aside {
+    padding-top: 50px
+  }
+  #tracker-container.aside-in #content-tracker-container, #tracker-container.aside-in:not(.mainnav-in) #footer {
+    padding-right: 220px
+  }
+  #tracker-container.aside-in.aside-left #content-tracker-container, #tracker-container.aside-in.aside-left #footer {
+    padding-left: 220px;
+    padding-right: 0
+  }
+}
+
+#tracker-container.aside-bright #aside {
+  background-color: #fff;
+  border-color: #f2f2f2;
+  color: #515151
+}
+
+#tracker-container.aside-bright #aside .text-light {
+  color: #515151
+}
+
+#tracker-container.aside-bright #aside .bord-all, #tracker-container.aside-bright #aside .bord-top, #tracker-container.aside-bright #aside .bord-btm, #tracker-container.aside-bright #aside .bord-lft, #tracker-container.aside-bright #aside .bord-rgt, #tracker-container.aside-bright #aside .bord-hor, #tracker-container.aside-bright #aside .bord-ver, #tracker-container.aside-bright #aside .list-divider {
+  border-color: #f7f7f7
+}
+
+#tracker-container.aside-bright #aside .text-muted {
+  color: #9e9e9e
+}
+
+#tracker-container.aside-bright #aside .progress {
+  background-color: #e6e6e6
+}
+
+#tracker-container.aside-bright #aside .list-link li a:not(.btn) {
+  color: #5e5e5e
+}
+
+#tracker-container.aside-bright #aside .list-link li a:not(.btn):hover {
+  color: #515151
+}
+
+#tracker-container.aside-bright #aside a:not(.btn) {
+  color: #515151
+}
+
+#tracker-container.aside-bright #aside a:not(.btn):hover, #tracker-container.aside-bright #aside a:not(.btn):focus {
+  color: #373737
+}
+
+#tracker-container.aside-bright #aside .btn-link {
+  color: #515151
+}
+
+
+// tracker container end
+
+
 @media (min-width: 768px) {
   #aside {
     max-height: none;

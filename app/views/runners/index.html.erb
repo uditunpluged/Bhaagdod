@@ -1,16 +1,14 @@
 <div id="page-title"><h1 class="page-header text-overflow text-4x text-dark">Runners</h1></div>
 <div class="page-content">
   <div class="panel">
-    <div class="panel-heading">
-      <h3 class="panel-title">Faridabad</h3>
-    </div>
+
 
     <div class="panel-body">
       <div class="pad-btm form-inline">
         <div class="row">
 
           <div class="col-sm-6 table-toolbar-left">
-            <button id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus">Add</button>
+            <button id="add_runner" class="btn btn-purple btn-labeled fa fa-plus" data-toggle="modal" data-target="#myModal">Add</button>
             <button class="btn btn-default"><i class="fa fa-print"></i></button>
             <div class="btn-group">
               <button class="btn btn-default"><i class="fa fa-exclamation-circle"></i></button>
@@ -46,27 +44,54 @@
       <table class="table table-stripped">
         <thead>
         <tr>
-          <th>Id</th>
-          <th>Member Name</th>
+          <th>Runner Id</th>
+          <th>Runner Image</th>
+          <th>Runner Name</th>
           <th>Email</th>
           <th>Phone</th>
+          <th>Team</th>
           <th>Status</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td><a class="btn-link" href="tables-static.html#"> Order #53431</a></td>
-          <td>Steve N. Horton</td>
-          <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 22, 2014</span></td>
-          <td>$45.00</td>
-          <td>
-            <div class="label label-table label-success">Paid</div>
-          </td>
-          <td>-</td>
-        </tr>
+        <% @runners.each do |runner| %>
+            <tr>
+              <td><a class="btn-link" href="tables-static.html#"> <%= runner.id %></a></td>
+              <td><%= runner.avatar %></td>
+              <td><span class="text-muted"><%= "#{runner.first_name} #{runner.last_name}" %></span></td>
+              <td><%= runner.email %></td>
+              <td><%= runner.phone_no %></td>
+              <td>"to be added"</td>
+              <td>
+                <div class="label label-table label-success"><%= runner.status %></div>
+              </td>
+              <td>
+                <div class="btn-group">
+                  <%= link_to edit_runner_path(runner, format: :js), class: 'btn btn-default', :remote => true do %>
+                      <i class="fa fa-edit"></i>
+                  <% end %>
+                  <%= link_to runner_path(runner), :method => :delete, class: 'btn btn-default', :data => {confirm: 'Are You sure you want to delete this runner '} do %>
+                      <i class="fa fa-trash"></i>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
 
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="panel">
+      <div class="panel-heading">
+        <h2 class="panel-title">Add Runner</h2>
+      </div>
+
+      <%= render 'runners/form' %>
+    </div>
   </div>
 </div>

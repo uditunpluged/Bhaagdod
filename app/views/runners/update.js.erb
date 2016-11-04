@@ -1,0 +1,8 @@
+<% if @runner.valid? %>
+$('#editModal<%= @runner.id %>').modal('toggle');
+<% else %>
+$('#editModal<%= @runner.id %>').remove();
+$('.modal-backdrop').remove();
+$('body').append('<%= j render 'edit_modal' %>');
+$('#editModal<%= @runner.id %>').modal();
+<% end %>

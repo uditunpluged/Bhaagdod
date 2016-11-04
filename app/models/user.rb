@@ -21,9 +21,13 @@
 #  last_name              :string(255)
 #  dob                    :date
 #  employee_id            :string(255)
+#  phone_no               :decimal(10, )
+#  status                 :text(65535)
 #
 
 class User < ActiveRecord::Base
+  rolify
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
