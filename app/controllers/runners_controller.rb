@@ -17,7 +17,8 @@ class RunnersController < ApplicationController
     @runner=User.find params[:id]
     if @runner.update(post_params)
       redirect_to :back
-
+    else
+      render 'edit'
     end
   end
 
@@ -32,7 +33,7 @@ class RunnersController < ApplicationController
     if @runner.save
       redirect_to :back
     else
-      render 'new'
+      redirect_to new_runner_path
     end
   end
 
