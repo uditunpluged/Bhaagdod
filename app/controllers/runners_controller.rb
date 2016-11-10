@@ -2,7 +2,6 @@ class RunnersController < ApplicationController
 
   def index
     @runners=User.with_role(:runner)
-    @runner = User.new
   end
 
   def show
@@ -16,7 +15,7 @@ class RunnersController < ApplicationController
   def update
     @runner=User.find params[:id]
     if @runner.update(post_params)
-      redirect_to :back
+      redirect_to runner_path
     else
       render 'edit'
     end
@@ -31,7 +30,7 @@ class RunnersController < ApplicationController
     @runner=User.new(post_params)
     @runner.add_role(:runner)
     if @runner.save
-      redirect_to :back
+      redirect_to runners_path
     else
       redirect_to new_runner_path
     end

@@ -1,9 +1,9 @@
-<%= simple_form_for @runner, url: (@runner.new_record? ? runners_path : runner_path(@runner)), class:'form-horizontal' do |f| %>
-    <% if @runner.errors.any? %>
+<%= simple_form_for @coordinator, url: (@coordinator.new_record? ? coordinators_path : coordinator_path(@coordinator)), class:'form-horizontal' do |f| %>
+    <% if @coordinator.errors.any? %>
         <div class="">
-          <h2><%= pluralize @runner.errors.count, "error" %> prevented this pic from saving</h2>
+          <h2><%= pluralize @coordinator.errors.count, "error" %> prevented this pic from saving</h2>
           <ul>
-            <% @runner.errors.full_message.each do |msg| %>
+            <% @coordinator.errors.full_message.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -17,14 +17,13 @@
             <%= f.input :first_name, label: 'First Name', required: true, class: 'form-group' %>
             <%= f.input :last_name, label: 'Last Name', required: true, class: 'form-group' %>
             <%= f.input :phone_no, label: 'Phone Number', required: true, class: 'form-group' %>
-            <%= f.input :status, label: 'Status', required: true, class: 'form-group' %>
 
       </div>
       <div class="panel-footer">
 
 
         <div class="text-right col4">
-          <%= f.button :submit, (@runner.new_record? ? "Add This Runner":"Update"), class: "btn btn-mint" %>
+          <%= f.button :submit, (@coordinator.new_record? ? "Add This Coordinator":"Update"), class: "btn btn-mint" %>
         </div>
 
       </div>

@@ -21,15 +21,21 @@
 #  last_name              :string(255)
 #  dob                    :date
 #  employee_id            :string(255)
-#  phone_no               :decimal(10, )
+#  phone_no               :text(65535)
 #  status                 :text(65535)
+#  team_id                :integer
 #
 
 class User < ActiveRecord::Base
   rolify
 
+  has_many :teams
+  belongs_to :team
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
 end

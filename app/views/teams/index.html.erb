@@ -1,34 +1,91 @@
-<div id="page-title"><h1 class="page-header text-overflow text-4x text-dark">Teams</h1></div>
-<div class="page-content">
-  <div class="">
-    <div class="col-sm-4 eq-box-sm">
-      <div class="panel">
-        <div class="panel-heading">
-          <div class="panel-title">Faridabad</div>
+<div id="page-content">
+  <div id="page-title"><h1 class="page-header text-overflow text-4x text-dark">Teams</h1></div>
+
+  <div class="row">
+    <div class="panel">
+
+
+      <div class="panel-body">
+        <div class="pad-btm form-inline">
+          <div class="row">
+
+            <div class="col-sm-6 table-toolbar-left">
+              <%= link_to "Add", new_team_path, class: "btn btn-purple btn-labeled fa fa-plus" %>
+
+            </div>
+
+            <div class="col-sm-6 table-toolbar-right">
+              <div class="form-group">
+                <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-          <div class="test">
-            <div class="mydiv">
-              <ul class="list-unstyled">
-                <li><span class="icon-wrap icon-wrap-sm icon-circle bg-mint"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
-                </li>
-                <li><span class="icon-wrap icon-wrap-sm icon-circle bg-danger"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
-                </li>
-                <li><span class="icon-wrap icon-wrap-sm icon-circle bg-pink"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
-                </li>
-                <li><span class="icon-wrap icon-wrap-sm icon-circle bg-warning"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
-                </li>
-              </ul>
+
+        <!-- Table below-->
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <% @teams.each do |team| %>
+        <div class="col-sm-4 eq-box-sm">
+          <div class="panel">
+            <div class="panel-heading">
+              <div class="panel-title"><%= team.name %></div>
+            </div>
+            <div class="panel-body">
+              <h4>
+                <small> Team Lead : <%= team.user.first_name %> </small>
+              </h4>
+
+              <div class="mydiv">
+                <ul class="list-unstyled">
+                  <li>
+                    <span class="icon-wrap icon-wrap-sm icon-circle bg-mint"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
+                  </li>
+                  <li>
+                    <span class="icon-wrap icon-wrap-sm icon-circle bg-danger"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
+                  </li>
+                  <li>
+                    <span class="icon-wrap icon-wrap-sm icon-circle bg-pink"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
+                  </li>
+                  <li>
+                    <span class="icon-wrap icon-wrap-sm icon-circle bg-warning"><i class="fa fa-user #{$fa-css-prefix}-2x"></i></span>
+                  </li>
+                </ul>
+
+
+              </div>
+            </div>
+
+            <div class="panel-footer clearfix">
+              <div class="btn btn-default pull-left">
+                <%= link_to team_path(team), :method => :delete, :data => {confirm: 'Are You sure you want to delete this team ?'} do %>
+                    <i class="fa fa-trash"></i>
+                <% end %>
+              </div>
+
+
+              <div class="text-right">
+                <div class=" col4">
+                  <%= link_to "Add Team Members", edit_team_path(team), class: "btn btn-purple" %>
+                  <%= link_to "Edit", edit_team_path(team), class: "btn btn-mint" %>
+
+                </div>
+
+              </div>
+
 
             </div>
 
           </div>
         </div>
-      </div>
-    </div>
-
+    <% end %>
 
   </div>
 
-</div>
 
+</div>

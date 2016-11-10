@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel">
+      <%= simple_form_for @team, url: @team do |f| %>
+
+
+          <div class="panel-body">
+            <%= f.input :name, required: true, autofocus: true, class: 'form-group' %>
+            <%= f.select :user_id, User.with_role(:coordinator).collect { |x| [x.first_name, x.id] }, :include_blank => "Select One", class: 'btn dropdown' %>
+
+
+          </div>
+          <div class="panel-footer">
+
+
+            <div class="text-right col4">
+              <%= f.button :submit, (@team.new_record? ? "Add Team" : "Update"), class: "btn btn-mint" %>
+            </div>
+
+          </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
