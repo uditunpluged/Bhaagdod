@@ -1,4 +1,4 @@
-<%= simple_form_for @coordinator, url: (@coordinator.new_record? ? coordinators_path : coordinator_path(@coordinator)), class:'form-horizontal' do |f| %>
+<%= simple_form_for @coordinator, url: (@coordinator.new_record? ? coordinators_path : coordinator_path(@coordinator)), class: 'form-horizontal' do |f| %>
     <% if @coordinator.errors.any? %>
         <div class="">
           <h2><%= pluralize @coordinator.errors.count, "error" %> prevented this pic from saving</h2>
@@ -11,21 +11,21 @@
     <% end %>
 
 
-      <div class="panel-body">
-            <%= f.input :email, required: true, autofocus: true, class: 'form-group' %>
-            <%= f.input :password, required: true, class: 'form-group' %>
-            <%= f.input :first_name, label: 'First Name', required: true, class: 'form-group' %>
-            <%= f.input :last_name, label: 'Last Name', required: true, class: 'form-group' %>
-            <%= f.input :phone_no, label: 'Phone Number', required: true, class: 'form-group' %>
+    <div class="panel-body">
+      <%= f.input :email, required: true, autofocus: true, class: 'form-group' %>
+      <%= f.input :password, required: true, class: 'form-group' %>
+      <%= f.input :first_name, label: 'First Name', required: true, class: 'form-group' %>
+      <%= f.input :last_name, label: 'Last Name', required: true, class: 'form-group' %>
+      <%= f.input :phone_no, label: 'Phone Number', required: true, class: 'form-group' %>
 
+    </div>
+    <div class="panel-footer">
+
+
+      <div class="text-right col4">
+        <%= f.button :submit, (@coordinator.new_record? ? "Add This Coordinator" : "Update"), class: "btn btn-mint" %>
       </div>
-      <div class="panel-footer">
 
-
-        <div class="text-right col4">
-          <%= f.button :submit, (@coordinator.new_record? ? "Add This Coordinator":"Update"), class: "btn btn-mint" %>
-        </div>
-
-      </div>
+    </div>
 
 <% end %>

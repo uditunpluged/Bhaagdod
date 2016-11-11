@@ -60,7 +60,7 @@
               <td><span class="text-muted"><%= "#{coordinator.first_name} #{coordinator.last_name}" %></span></td>
               <td><%= coordinator.email %></td>
               <td><%= coordinator.phone_no %></td>
-              <td>"to be added"</td>
+              <td><%= coordinator.team_id.nil? ? "" : coordinator.team.name %></td>
 
               <td>
                 <div class="btn-group">

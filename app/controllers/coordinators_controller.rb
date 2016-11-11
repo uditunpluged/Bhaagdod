@@ -36,6 +36,7 @@ class CoordinatorsController < ApplicationController
 
   def destroy
     @coordinator=User.find params[:id]
+    @coordinator.team.update(user: nil)
     @coordinator.destroy
     redirect_to :back
   end
@@ -46,6 +47,6 @@ class CoordinatorsController < ApplicationController
   end
 
   def post_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :phone_no)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :phone_no,:team_id)
   end
 end

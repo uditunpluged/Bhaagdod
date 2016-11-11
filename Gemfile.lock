@@ -154,6 +154,10 @@ GEM
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rolify (5.1.0)
+    roo (2.5.1)
+      nokogiri (~> 1)
+      rubyzip (~> 1.1, < 2.0.0)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -216,6 +220,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails_12factor
   rolify
+  roo
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 3.2, >= 3.2.1)

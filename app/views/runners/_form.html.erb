@@ -1,4 +1,4 @@
-<%= simple_form_for @runner, url: (@runner.new_record? ? runners_path : runner_path(@runner)), class:'form-horizontal' do |f| %>
+<%= simple_form_for @runner, url: (@runner.new_record? ? runners_path : runner_path(@runner)), class: 'form-horizontal' do |f| %>
     <% if @runner.errors.any? %>
         <div class="">
           <h2><%= pluralize @runner.errors.count, "error" %> prevented this pic from saving</h2>
@@ -11,22 +11,23 @@
     <% end %>
 
 
-      <div class="panel-body">
-            <%= f.input :email, required: true, autofocus: true, class: 'form-group' %>
-            <%= f.input :password, required: true, class: 'form-group' %>
-            <%= f.input :first_name, label: 'First Name', required: true, class: 'form-group' %>
-            <%= f.input :last_name, label: 'Last Name', required: true, class: 'form-group' %>
-            <%= f.input :phone_no, label: 'Phone Number', required: true, class: 'form-group' %>
-            <%= f.input :status, label: 'Status', required: true, class: 'form-group' %>
+    <div class="panel-body">
+      <%= f.input :email, required: true, autofocus: true, class: 'form-group' %>
+      <%= f.input :password, required: true, class: 'form-group' %>
+      <%= f.input :first_name, label: 'First Name', required: true, class: 'form-group' %>
+      <%= f.input :last_name, label: 'Last Name', required: true, class: 'form-group' %>
+      <%= f.input :phone_no, label: 'Phone Number', required: true, class: 'form-group' %>
+      <%= f.input :team_id, :label => "Choose Team", :collection => Team.all.collect { |x| [x.name, x.id] }, :include_blank => "Select One", class: 'btn dropdown' %>
+      <%= f.input :status, label: 'Status', required: true, class: 'form-group' %>
 
+    </div>
+    <div class="panel-footer">
+
+
+      <div class="text-right col4">
+        <%= f.button :submit, (@runner.new_record? ? "Add This Runner" : "Update"), class: "btn btn-mint" %>
       </div>
-      <div class="panel-footer">
 
-
-        <div class="text-right col4">
-          <%= f.button :submit, (@runner.new_record? ? "Add This Runner":"Update"), class: "btn btn-mint" %>
-        </div>
-
-      </div>
+    </div>
 
 <% end %>

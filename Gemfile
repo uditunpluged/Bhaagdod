@@ -33,8 +33,7 @@ gem 'pace-rails'
 gem 'cancan'
 gem 'rolify'
 gem 'jquery-turbolinks'
-
-
+gem 'roo'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
