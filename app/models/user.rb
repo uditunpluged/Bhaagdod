@@ -24,6 +24,7 @@
 #  phone_no               :text(65535)
 #  status                 :text(65535)
 #  team_id                :integer
+#  category               :integer
 #
 
 class User < ActiveRecord::Base
@@ -37,21 +38,29 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
 
+  # Coordinator validations
+  validates :dob, :last_name, presence: true if :is_coordinator?
+
+  #Runner validations
+  validates :dob, presence: true if :is_runner?
+
   def self.import(file)
     CSV.foreach(file.path,headers: true) do |variable|
       User.create!(variable.to_hash)
     end
-    end
+  end
 
   def self.importUsingRoo(file)
-   spreadsheet=open_spreadsheet(file)
+    spreadsheet=open_spreadsheet(file)
     header=spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row=Hash[[header,spreadsheet.row(i)].transpose]
       # user= find_by_id(row["id"]) || new
       # user.attributes = row.to_hash
       # user.save!
-      User.create!(row.to_hash).add_role(:runner)
+      values = row.to_hash
+      values['category'] = 3
+      User.create!(values).add_role(:runner)
 
     end
   end
@@ -64,7 +73,9 @@ class User < ActiveRecord::Base
       # user= find_by_id(row["id"]) || new
       # user.attributes = row.to_hash
       # user.save!
-      User.create!(row.to_hash).add_role(:coordinator)
+      values = row.to_hash
+      values['category'] = 2
+      User.create!(values).add_role(:coordinator)
     end
   end
 
@@ -73,4 +84,16 @@ class User < ActiveRecord::Base
       when ".csv" then Roo::CSV.new(file.path)
     end
   end
+
+  private
+
+  def is_coordinator?
+    category == 2
+  end
+
+  def is_runner?
+    #make your runner validations true or false using category here
+    true
+  end
+
 end
