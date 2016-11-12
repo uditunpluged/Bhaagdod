@@ -2,10 +2,6 @@ class RunnersController < ApplicationController
 
   def index
     @runners=User.with_role(:runner)
-    respond_to do |format|
-      format.html
-      format.csv { send_data @runners.to_csv}
-    end
   end
 
   def show

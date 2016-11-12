@@ -42,8 +42,9 @@ class CoordinatorsController < ApplicationController
   end
 
 
-
-  def show
+  def import
+    User.importCoordinatorsUsingRoo(params[:file])
+    redirect_to :back, :notice=>"Imported"
   end
 
   def post_params

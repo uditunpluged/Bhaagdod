@@ -7,7 +7,7 @@
         <div class="row">
 
           <div class="col-sm-6 table-toolbar-left">
-            <%= link_to "Add",new_coordinator_path,class:"btn btn-purple btn-labeled fa fa-plus" %>
+            <%= link_to "Add", new_coordinator_path, class: "btn btn-purple btn-labeled fa fa-plus" %>
             <!--<button id="add_runner" class="btn btn-purple btn-labeled fa fa-plus" data-toggle="modal" data-target="#myModal">Add</button>-->
             <button class="btn btn-default"><i class="fa fa-print"></i></button>
             <div class="btn-group">
@@ -21,7 +21,10 @@
               <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
             </div>
             <div class="btn-group">
-              <button class="btn btn-default"><i class="fa fa fa-cloud-download"></i></button>
+              <%= form_tag import_coordinators_path, multipart: true do %>
+                  <%= file_field_tag :file, label: 'Import from CSV', class: 'btn btn-default' %>
+                  <%= submit_tag 'Import' %>
+              <% end %>
               <div class="btn-group">
                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">
                   <i class="fa fa-cog"></i>
