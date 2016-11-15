@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109123528) do
+ActiveRecord::Schema.define(version: 20161115061455) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20161109123528) do
     t.text     "phone_no",               limit: 65535
     t.text     "status",                 limit: 65535
     t.integer  "team_id",                limit: 4
+    t.integer  "category",               limit: 4,     default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -49,7 +49,7 @@ class RunnersController < ApplicationController
 
   def import
     # RunnersHelper.import(params[:file])
-    User.importUsingRoo(params[:file])
+    User.importRunnersUsingRoo(params[:file])
     redirect_to :back, :notice=>"Imported"
   end
 
