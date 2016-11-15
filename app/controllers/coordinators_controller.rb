@@ -1,6 +1,7 @@
 class CoordinatorsController < ApplicationController
   def index
     @coordinators=User.with_role(:coordinator)
+    @teams=Team.all
   end
 
   def new

@@ -12,8 +12,8 @@ class TeamsController < ApplicationController
     @team = Team.new(post_params)
 
     if @team.save
-      # @user=User.find(@team.user_id)
-      # @user.update({:team_id=>@team.id})
+      @user=User.find(@team.user_id)
+      @user.update({:team_id=>@team.id})
       redirect_to teams_path
     else
       redirect_to new_team_path
@@ -27,8 +27,8 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find params[:id]
     if @team.update(post_params)
-      # @user=User.find(@team.user_id)
-      # @user.update({:team_id=>@team.id})
+      @user=User.find(@team.user_id)
+      @user.update({:team_id=>@team.id})
       redirect_to teams_path
     else
       redirect_to edit_team_path

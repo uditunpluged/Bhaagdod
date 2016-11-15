@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
 
   # Coordinator validations
-  validates  :last_name, presence: true, if: :is_coordinator?
+  validates  :first_name, presence: true, if: :is_coordinator?
 
   #Runner validations
   validates :first_name, presence: true, if: :is_runner?

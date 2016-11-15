@@ -6,7 +6,7 @@
 
           <div class="panel-body">
             <%= f.input :name, required: true, autofocus: true, class: 'form-group' %>
-            <%= f.select :user_id, User.with_role(:coordinator).collect { |x| [x.first_name, x.id] }, :include_blank => "Select One", class: 'btn dropdown' %>
+            <%= f.select :user_id, User.with_role(:coordinator).where(team_id:nil).collect { |x| [x.first_name, x.id] }, :include_blank => "Select One", class: 'btn dropdown' %>
 
 
           </div>
