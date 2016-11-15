@@ -45,6 +45,9 @@
             </ul>
             <ul class="nav navbar-top-links pull-right">
               <!--Navigation menu-->
+              <li style="margin: 10px;" class="">
+                <div class="btn btn-success">Add Task</div>
+              </li>
               <li class="dropdown">
 
                 <%= link_to tracker_index_path, class: "dropdown-toggle text-right" do %>
@@ -59,25 +62,16 @@
               <li id="dropdown-user" class="dropdown">
                 <a href="" data-toggle="dropdown" class="dropdown-toggle text-right" aria-expanded="false">
 								<span class="pull-right">
-									<img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+									<img class="img-circle img-user media-object" src="assets/login.jpg" alt="Profile Picture">
 								</span>
 
-                  <div class="username hidden-xs">John Doe</div>
+                  <div class="username hidden-xs"><%= "#{current_user.first_name} #{current_user.last_name}" %></div>
                 </a>
 
 
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
 
-                  <!-- Dropdown heading  -->
-                  <div class="pad-all bord-btm">
-                    <p class="text-lg text-muted text-thin mar-btm">750Gb of 1,000Gb Used</p>
 
-                    <div class="progress progress-sm">
-                      <div class="progress-bar" style="width: 70%;">
-                        <span class="sr-only">70%</span>
-                      </div>
-                    </div>
-                  </div>
 
 
                   <!-- User dropdown menu -->
