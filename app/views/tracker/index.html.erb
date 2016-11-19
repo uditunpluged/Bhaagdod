@@ -357,30 +357,3 @@
     </div>
   </aside>
 </div>
-
-<script>
-    function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('maps'), {
-            zoom: 4,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-        var mywidth = viewportSize.getWidth() - 640;
-
-        var div = document.getElementById('maps')
-
-        div.style.height = '93vh';
-        div.style.position = 'fixed';
-        div.style.overflow = 'hidden';
-        div.style.width = '' + mywidth + 'px';
-        div.style.margin = '50px -320px 0px 320px';
-
-
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvSUPiUzR5bHvcbbe-L2cb6Wft3KnKuNE&callback=initMap">
-</script>

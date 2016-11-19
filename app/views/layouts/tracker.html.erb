@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Bhaag Dod</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvSUPiUzR5bHvcbbe-L2cb6Wft3KnKuNE">
+  </script>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -46,7 +48,9 @@
             <ul class="nav navbar-top-links pull-right">
               <!--Navigation menu-->
               <li style="margin: 10px;" class="">
-                <div class="btn btn-success">Add Task</div>
+                <button class="btn btn-success" data-target="#add_new_task_modal" data-toggle="modal" id="add_task_button">Add
+                  Task
+                </button>
               </li>
               <li class="dropdown">
 
@@ -70,8 +74,6 @@
 
 
                 <div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
-
-
 
 
                   <!-- User dropdown menu -->
@@ -198,6 +200,83 @@
 </div>
 <!--===================================================-->
 <!-- END OF CONTAINER -->
+
+<!-- Add New Task Modal-->
+<div id="add_new_task_modal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title" id="myLargeModalLabel">Add New Task</h4>
+        <hr/>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <!-- FORM DIV-->
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-3 text-bold mar-lft">
+                Pick a task
+              </div>
+              <div class="col-lg-6">
+                <label class="radio-inline form-radio form-icon form-pink form-text">
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Pickup
+                </label>
+
+
+                <label class="radio-inline form-radio form-icon form-purple form-text">
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Delivery
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-group mar-top form-inline">
+                <div class="input-group">
+                    <span class="input-group-addon ">
+                        <i class="fa fa-phone"></i>
+                    </span>
+                  <input type="text" class="form-control" placeholder="Phone Number"/>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon ">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                  <input type="text" class="form-control" placeholder="Email"/>
+                </div>
+
+              </div>
+
+              <div class="form-group mar-top">
+                <div class="input-group">
+                    <span class="input-group-addon ">
+                        <i class="fa fa-user"></i>
+                    </span>
+                  <input type="text" class="form-control" placeholder="Customer Name"/>
+                </div>
+              </div>
+              <div class="form-group mar-top">
+                <div class="input-group">
+                    <span class="input-group-addon ">
+                        <i class="fa fa-home fa-2x"></i>
+                    </span>
+                  <textarea rows="3" class="form-control" placeholder="Customer Address"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- MAP DIV-->
+          <div class="col-lg-6">
+            <div id="modal-map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>
