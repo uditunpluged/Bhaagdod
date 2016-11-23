@@ -16,4 +16,6 @@
 
 class Address < ActiveRecord::Base
   belongs_to :customer
+
+  scope :preferred, -> { where(preffered: true) }
 end

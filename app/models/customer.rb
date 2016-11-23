@@ -14,4 +14,8 @@
 class Customer < ActiveRecord::Base
   has_many :addresses , dependent: :destroy
   accepts_nested_attributes_for :addresses
+
+  def preferred_address
+    addresses.where(preffered: true).last
+  end
 end

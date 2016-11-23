@@ -57,7 +57,7 @@
               <td><span class="text-muted"><%= customer.name %></span></td>
               <td><%= customer.email %></td>
               <td><%= customer.phone %></td>
-              <td><%= %></td>
+              <td><%= customer.preferred_address.country %></td>
               <td>
                 <div class="btn-group">
                   <%= link_to edit_customer_path(customer), class: 'btn btn-default' do %>
