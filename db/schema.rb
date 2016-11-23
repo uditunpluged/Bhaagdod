@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115061455) do
+ActiveRecord::Schema.define(version: 20161121055002) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_addr", limit: 255
+    t.string   "city",        limit: 255
+    t.string   "state",       limit: 255
+    t.string   "country",     limit: 255
+    t.string   "pincode",     limit: 255
+    t.boolean  "preffered",               default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "customer_id", limit: 4
+  end
+
+  add_index "addresses", ["customer_id"], name: "index_addresses_on_customer_id", using: :btree
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "phone",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "address_id", limit: 4
+  end
+
+  add_index "customers", ["address_id"], name: "index_customers_on_address_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -23,6 +48,17 @@ ActiveRecord::Schema.define(version: 20161115061455) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "category",   limit: 4
+    t.integer  "team_id",    limit: 4
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "tasks", ["team_id"], name: "index_tasks_on_team_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -69,6 +105,10 @@ ActiveRecord::Schema.define(version: 20161115061455) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "addresses", "customers"
+  add_foreign_key "customers", "addresses"
+  add_foreign_key "tasks", "teams"
+  add_foreign_key "tasks", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "users", "teams"
 end

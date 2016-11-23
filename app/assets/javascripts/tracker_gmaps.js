@@ -44,18 +44,21 @@ $(document).ready(function () {
     });
 
     $("#add_new_task_modal").on('shown.bs.modal', function (e) {
-        taskGeoCodeMap();
+        taskGeoCodeMap("Delhi");
+        $('#team_chooser').chosen();
+        $('#runner_chooser').chosen();
+
     });
 
     //Geocoding map
-    function taskGeoCodeMap() {
+    function taskGeoCodeMap(input_address) {
 
 
        var geomap = new GMaps({
             div: '#modal-map',
             lat: 37.336095,
             lng: -121.8885431,
-            zoom:13
+            zoom:16
         });
 
         var div = document.getElementById('modal-map')
@@ -68,7 +71,7 @@ $(document).ready(function () {
         geomap.refresh();
         GMaps.geocode({
             //address: $('#modal-map').val().trim(),
-            address: "New Delhi",
+            address:input_address ,
             callback: function (results, status) {
                 if (status == 'OK') {
                     var latlng = results[0].geometry.location;
@@ -87,6 +90,10 @@ $(document).ready(function () {
 
     }
 
+
+    $("#locate_button").click(function(){
+        taskGeoCodeMap($("#address_input").val());
+    });
 
 
 });

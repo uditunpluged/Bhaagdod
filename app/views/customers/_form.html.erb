@@ -1,0 +1,43 @@
+<%= simple_form_for @customer, url: (@customer.new_record? ? customers_path : edit_customer_path(@customer)), class: 'form-horizontal' do |f| %>
+    <% if @customer.errors.any? %>
+        <div class="">
+          <h2><%= pluralize @customer.errors.count, "error" %> prevented this pic from saving</h2>
+          <ul>
+            <% @customer.errors.full_message.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="panel-body">
+      <%= f.input :name, required: true, autofocus: true, class: 'form-group' %>
+      <%= f.input :email, class: 'form-group' %>
+      <%= f.input :phone, required: true, class: 'form-group' %>
+      <h3>Address</h3>
+
+      <div class="well">
+
+
+        <%= f.simple_fields_for :addresses do |add| %>
+            <%= add.input :street_addr, required: true, class: 'form-group' %>
+            <%= add.input :city, required: true, class: 'form-group' %>
+            <%= add.input :state, required: true, class: 'form-group' %>
+            <%= add.input :country, as: :text, class: 'form-group' %>
+            <%= add.input :pincode, required: true, class: 'form-group' %>
+            <%= add.input :preffered, as: :radio_buttons, class: 'form-group' %>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="panel-footer">
+
+
+      <div class="text-right col4">
+        <%= f.button :submit, (@customer.new_record? ? "Add This Customer" : "Update"), class: "btn btn-mint" %>
+      </div>
+
+    </div>
+
+<% end %>
