@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
 
   resources :tracker do
-
+    get :autocomplete_customer_phone, :on => :collection
   end
 
 end

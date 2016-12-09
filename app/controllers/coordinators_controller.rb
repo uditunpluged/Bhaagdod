@@ -1,11 +1,11 @@
 class CoordinatorsController < ApplicationController
   def index
-    @coordinators=User.with_role(:coordinator)
-    @teams=Team.all
+    @coordinators = User.with_role(:coordinator)
+    @teams = Team.all
   end
 
   def new
-    @coordinator=User.new
+    @coordinator = User.new
   end
 
   def create
@@ -45,10 +45,10 @@ class CoordinatorsController < ApplicationController
 
   def import
     User.importCoordinatorsUsingRoo(params[:file])
-    redirect_to :back, :notice=>"Imported"
+    redirect_to :back, :notice => "Imported"
   end
 
   def post_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :phone_no,:team_id)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :phone_no, :team_id)
   end
 end

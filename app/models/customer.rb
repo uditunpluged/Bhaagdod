@@ -18,4 +18,8 @@ class Customer < ActiveRecord::Base
   def preferred_address
     addresses.where(preffered: true).last
   end
+
+  def funky_method
+    "#{self.name}.camelize"
+  end
 end

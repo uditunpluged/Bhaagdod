@@ -240,14 +240,24 @@
                         <span class="input-group-addon ">
                           <i class="fa fa-phone"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Phone Number"/>
+                        <%= text_field_tag :search, params[:search], data: {autocomplete: autocomplete_customer_phone_tracker_index_path},:id=>'phoneSearch',:update_elements => {:email => '#email_field'} %>
+                        <!--<input type="text" class="form-control" placeholder="Phone Number"/>-->
+                        <script type="text/javascript" charset="utf-8">
+                            $('#phoneSearch').bind('railsAutocomplete.select', function(event, data){
+                                //$('#search-form').submit()
+                                console.log("DATA"+data.item);
+                                $('#email_field').val(data.item.email);
+                                $('#name_field').val(data.item.name);
+
+                            });
+                        </script>
                       </div>
 
                       <div class="input-group">
                         <span class="input-group-addon ">
                             <i class="fa fa-envelope"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Email"/>
+                        <input type="text" id="email_field" class="form-control" placeholder="Email"/>
                       </div>
                     </div>
                   </div>
@@ -258,7 +268,7 @@
                     <span class="input-group-addon ">
                         <i class="fa fa-user"></i>
                     </span>
-                        <input type="text" class="form-control" placeholder="Customer Name"/>
+                        <input type="text" id="name_field" class="form-control" placeholder="Customer Name"/>
                       </div>
                     </div>
                   </div>

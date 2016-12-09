@@ -12,11 +12,13 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
 //= require nifty.min
 //= require bootstrap-sprockets
 //= require viewportSize.min
 //= require pace/pace
 //= require turbolinks
+//= require autocomplete-rails
 //= require_tree .
 $(document).ready(function () {
     $(".mainnav-toggle").click(function () {
@@ -29,4 +31,13 @@ $(document).ready(function () {
 
     });
 
+    $( "#phoneSearch" ).autocomplete( "option", "appendTo", "#add_new_task_modal" );
+
+
+    $('#phoneSearch').bind('railsAutocomplete.select', function(event, data){
+        //$('#search-form').submit()
+        console.log("DATA"+data.item.id);
+        alert("SHIATe!");
+
+    });
 });

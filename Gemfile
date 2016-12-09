@@ -34,6 +34,8 @@ gem 'cancan'
 gem 'rolify'
 gem 'jquery-turbolinks'
 gem 'roo'
+gem 'rails-jquery-autocomplete'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

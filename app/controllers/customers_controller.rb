@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+
+  after_action :update_customer, only: :create
+
   def index
     @customers=Customer.all
   end
@@ -27,6 +30,8 @@ class CustomersController < ApplicationController
   def create
     @customer=Customer.new(customer_params)
     if @customer.save
+      @customer.address_id = Address.where(:customer => @customer.id)
+      @customer.update(user_params)
       redirect_to customers_path
     else
       redirect_to new_customer_path
@@ -40,9 +45,16 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(
-        :name, :email, :phone,
+        :name, :email, :phone, :address_id,
         addresses_attributes: [:street_addr, :city, :state, :country, :pincode, :preffered, :customer_id]
     )
+  end
+
+  def user_params
+    params.require(:customer).permit(:address_id)
+  end
+
+  def update_customer
   end
 
 end

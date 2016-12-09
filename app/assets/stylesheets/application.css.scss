@@ -13,7 +13,8 @@
  *= require_tree .
  *= require nifty.min
  *= pace theme-big-counter
-*= require pace/blue/pace-theme-barber-shop
+ *= require jquery-ui
+ *= require pace/blue/pace-theme-barber-shop
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
